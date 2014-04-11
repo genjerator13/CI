@@ -1,0 +1,25 @@
+services:
+    sonata.admin.container:
+        class: Numa\CIAdminBundle\Admin\ContainerAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: container, label: Container }
+        arguments:
+            - ~
+            - Numa\CIAdminBundle\Entity\Container
+            - 'NumaCIAdminBundle:ContainerAdmin'
+    sonata.admin.containerType:
+        class: Numa\CIAdminBundle\Admin\ContainerTypeAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: container, label: Container type }
+        arguments:
+            - ~
+            - Numa\CIAdminBundle\Entity\ContainerType
+            - 'NumaCIAdminBundle:ContainerTypeAdmin'
+    sonata.admin.user:
+        class: Numa\CIAdminBundle\Admin\UserAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: container, label: Container type }
+        arguments:
+            - ~
+            - Numa\CIAdminBundle\Entity\UserType
+            - 'NumaCIAdminBundle:UserAdmin'

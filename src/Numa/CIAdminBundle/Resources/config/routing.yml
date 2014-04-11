@@ -1,0 +1,11 @@
+numa_ic_admin_homepage:
+    pattern:  /
+    defaults: { _controller: NumaCIAdminBundle:Default:index }
+login:
+    pattern:   /login
+    defaults:  { _controller: NumaCIAdminBundle:Default:login }
+login_check:
+    pattern:   /login_check
+logout:
+    pattern:   /logout
+    defaults:  { _controller: NumaCIAdminBundle:Default:logout }

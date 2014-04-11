@@ -1,0 +1,49 @@
+Numa\CIAdminBundle\Entity\Container:
+    type: entity
+    table: container
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        name:
+            type: string
+            length: 255
+        container_type_id:
+            type: integer
+            nullable: true
+        user_id:
+            type: integer
+            nullable: true
+        description:
+            type: text
+            nullable: true
+        hauling:
+            type: text
+            nullable: true
+        inoutxxx:
+            type: string
+            length: 255
+            nullable: true
+        date_created:
+            type: datetime
+            nullable: true
+        date_updated:
+            type: datetime
+            nullable: true
+    manyToOne:
+        containerType:
+            targetEntity: ContainerType
+            inversedBy: Container
+            joinColumn:
+                name: container_type_id
+                referencedColumnName: id
+        user:
+            targetEntity: User
+            inversedBy: Container
+            joinColumn:
+                name: user_id
+                referencedColumnName: id
+    lifecycleCallbacks:
+        prePersist: [ setCreatedAtValue ]
+        preUpdate: [ setUpdatedAtValue ]

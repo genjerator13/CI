@@ -1,0 +1,55 @@
+Numa\CIAdminBundle\Entity\User:
+    type: entity
+    table: user
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        username:
+            type: string
+            length: 255
+            unique: true
+        password:
+            type: string
+            length: 255            
+        email:
+            type: string
+            length: 255
+            nullable: true
+        user_group:
+            type: string
+            length: 255
+            nullable: true
+        active:
+            type: boolean
+            default: 0
+            nullable: true 
+        contract_id:
+            type: integer
+            nullable: true 
+        FirstName:
+            type: string
+            length: 255
+            nullable: true
+        LastName:
+            type: string
+            length: 255
+            nullable: true
+
+        date_created:
+            type: datetime
+            nullable: true
+            
+        date_updated:
+            type: datetime
+            nullable: true
+            
+    oneToMany:
+        container:
+            targetEntity: Container
+            mappedBy: User 
+
+    lifecycleCallbacks:
+        prePersist: [ setCreatedAtValue ]
+        preUpdate: [ setUpdatedAtValue ]                

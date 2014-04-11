@@ -1,0 +1,30 @@
+
+{% extends 'SonataAdminBundle::standard_layout.html.twig' %}
+
+{% block content %}
+
+                <div class="container">
+
+
+                    <div class="login-form">
+                        <h2>Login</h2>
+
+                        <form action="{{ path('login_check') }}" method="post">
+
+                {% if error %}
+                            <div>{{ error.message }}</div>
+                {% endif %}
+                            <label for="username">Username:</label>
+                            <input type="text" id="username" name="_username" value="{{ last_username }}" placeholder="Username"/>
+                            <label for="password">Password:</label>
+                            <input type="password" id="password" name="_password" placeholder="Password"/>
+</br>
+                            <button class="btn btn-primary" type="submit">Sign in</button>
+
+                        </form>
+                    </div>
+
+
+                </div>
+
+{% endblock %}
