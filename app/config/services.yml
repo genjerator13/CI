@@ -1,8 +1,10 @@
 services:
-#    user.listener:
-#        class: Numa\CIAdminBundle\Listeners\UserListener
-#        tags:
-#            - { name: doctrine.event_listener, event: prePersist }
+    user.listener:
+        class: Numa\CIAdminBundle\Listeners\EntityListener
+        arguments: [@service_container]
+        tags:
+            - { name: doctrine.event_listener, event: prePersist }
+            - { name: doctrine.event_listener, event: preUpdate }
     sonata.admin.container:
         class: Numa\CIAdminBundle\Admin\ContainerAdmin
         tags:

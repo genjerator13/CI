@@ -132,16 +132,16 @@ class User implements UserInterface
      */
     public function setPassword($password)
     {
-        global $kernel;
-        if ('AppCache' == get_class($kernel)) {
-            $kernel = $kernel->getKernel();
-        }
-
-        $factory = $kernel->getContainer()->get('security.encoder_factory');
-        $encoder = $factory->getEncoder($this);
-        $encodedPassword = $encoder->encodePassword($password, $this->getSalt());
-        //$user->setPassword($encodedPassword);
-        $this->password = $encodedPassword;
+//        global $kernel;
+//        if ('AppCache' == get_class($kernel)) {
+//            $kernel = $kernel->getKernel();
+//        }
+//
+//        $factory = $kernel->getContainer()->get('security.encoder_factory');
+//        $encoder = $factory->getEncoder($this);
+//        $encodedPassword = $encoder->encodePassword($password, $this->getSalt());
+//        //$user->setPassword($encodedPassword);
+        $this->password = $password;
 
         return $this;
     }

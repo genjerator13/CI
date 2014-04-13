@@ -29,6 +29,7 @@ class UserAdmin extends Admin
                 'first_options' => array('label' => 'password'),
                 'second_options' => array('label' => 'password confirmation'),
                 'invalid_message' => 'Password missmatch',
+
                // 'attr'=>array('class'=>'sonata-ba-field-container')
             ))
 

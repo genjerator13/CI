@@ -40,6 +40,7 @@ class ContainerAdmin extends Admin
             ->addIdentifier('containerType')
             ->addIdentifier('inoutxxx')
             ->addIdentifier('hauling')
+            ->addIdentifier('user')
             ->addIdentifier('date_created')
 
         ;

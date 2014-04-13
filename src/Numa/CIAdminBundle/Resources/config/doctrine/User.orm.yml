@@ -12,7 +12,8 @@ Numa\CIAdminBundle\Entity\User:
             unique: true
         password:
             type: string
-            length: 255            
+            length: 255    
+            nullable: true 
         email:
             type: string
             length: 255
