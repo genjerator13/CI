@@ -30,6 +30,7 @@ class ContainerAdmin extends Admin
     {
         $datagridMapper
             ->add('name')
+            ->add('date_created', 'doctrine_orm_date_range');
         ;
     }
  
