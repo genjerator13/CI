@@ -12,6 +12,9 @@ Numa\CIAdminBundle\Entity\Container:
         container_type_id:
             type: integer
             nullable: true
+        color_type_id:
+            type: integer
+            nullable: true
         user_id:
             type: integer
             nullable: true
@@ -37,6 +40,12 @@ Numa\CIAdminBundle\Entity\Container:
             inversedBy: Container
             joinColumn:
                 name: container_type_id
+                referencedColumnName: id
+        colorType:
+            targetEntity: ColorType
+            inversedBy: Container
+            joinColumn:
+                name: color_type_id
                 referencedColumnName: id
         user:
             targetEntity: User

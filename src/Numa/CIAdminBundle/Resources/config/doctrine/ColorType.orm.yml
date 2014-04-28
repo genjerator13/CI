@@ -1,0 +1,17 @@
+Numa\CIAdminBundle\Entity\ColorType:
+    type: entity
+    table: color_type
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+       name:
+            type: string
+            length: 255
+            nullable: true
+
+    oneToMany:
+        container:
+            targetEntity: Container
+            mappedBy: colorType

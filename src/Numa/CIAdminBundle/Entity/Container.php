@@ -337,4 +337,60 @@ class Container {
     {
         return $this->inoutxxx;
     }
+    /**
+     * @var integer
+     */
+    private $color_type_id;
+
+    /**
+     * @var \Numa\CIAdminBundle\Entity\ContainerType
+     */
+    private $colorType;
+
+
+    /**
+     * Set color_type_id
+     *
+     * @param integer $colorTypeId
+     * @return Container
+     */
+    public function setColorTypeId($colorTypeId)
+    {
+        $this->color_type_id = $colorTypeId;
+
+        return $this;
+    }
+
+    /**
+     * Get color_type_id
+     *
+     * @return integer 
+     */
+    public function getColorTypeId()
+    {
+        return $this->color_type_id;
+    }
+
+    /**
+     * Set colorType
+     *
+     * @param \Numa\CIAdminBundle\Entity\ColorType $colorType
+     * @return Container
+     */
+    public function setColorType(\Numa\CIAdminBundle\Entity\ColorType $colorType = null)
+    {
+        $this->colorType = $colorType;
+
+        return $this;
+    }
+
+    /**
+     * Get colorType
+     *
+     * @return \Numa\CIAdminBundle\Entity\ColorType 
+     */
+    public function getColorType()
+    {
+        return $this->colorType;
+    }
 }

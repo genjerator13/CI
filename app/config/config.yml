@@ -82,6 +82,7 @@ sonata_admin:
                 items:
                     - sonata.admin.container
                     - sonata.admin.containerType
+                    - sonata.admin.colorType
                     - sonata.admin.user
     templates:
         dashboard: SonataAdminBundle:Core:dashboard.html.twig

@@ -49,6 +49,7 @@ file that was distributed with this source code.
 
             <!-- base application asset -->
             <link rel="stylesheet" href="{{ asset('bundles/sonataadmin/css/layout.css') }}" media="all">
+            <link rel="stylesheet" href="{{ asset('css/style.css') }}" media="all">
             <link rel="stylesheet" href="{{ asset('bundles/sonataadmin/css/colors.css') }}" media="all">
 
         {% endblock %}
@@ -221,7 +222,8 @@ file that was distributed with this source code.
                     {% endblock sonata_breadcrumb %}
 
                     {% if _actions is not empty %}
-                        <div class="span4 offset2">
+                        <div class="clearfix"></div>
+                        <div class="">
                             {{ _actions|raw }}
                         </div>
                     {% endif %}
@@ -255,14 +257,9 @@ file that was distributed with this source code.
 
                             {% if _list_table is not empty or _list_filters is not empty %}
                                 <div class="row-fluid">
-                                    <div class="sonata-ba-list {% if _list_filters|trim %}span10{% else %}span12{% endif %}">
+                                    <div class="sonata-ba-list span12">
                                         {{ _list_table|raw }}
                                     </div>
-                                    {% if _list_filters|trim %}
-                                        <div class="sonata-ba-filter span2">
-                                            {{ _list_filters|raw }}
-                                        </div>
-                                    {% endif %}
                                 </div>
                             {% endif %}
 
@@ -271,11 +268,11 @@ file that was distributed with this source code.
                 </div>
 
                 {% block footer %}
-                    <div class="row-fluid">
-                        <div class="span2 offset10 pull-right">
-                            <span class="label"><a href="http://sonata-project.org" rel="noreferrer" style="text-decoration: none; color: black">Sonata Project</a></span>
-                        </div>
-                    </div>
+                                    {% if _list_filters|trim %}
+                                        <div class="sonata-ba-filter span2">
+                                            {{ _list_filters|raw }}
+                                        </div>
+                                    {% endif %}
                 {% endblock %}
             {% endblock %}
         </div>

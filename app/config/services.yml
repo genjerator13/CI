@@ -20,7 +20,15 @@ services:
         arguments:
             - ~
             - Numa\CIAdminBundle\Entity\ContainerType
-            - 'NumaCIAdminBundle:ContainerTypeAdmin'
+            - NumaCIAdminBundle:ContainerTypeAdmin
+    sonata.admin.colorType:
+        class: Numa\CIAdminBundle\Admin\ColorTypeAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: container, label: Color types }
+        arguments:
+            - ~
+            - Numa\CIAdminBundle\Entity\ColorType
+            - NumaCIAdminBundle:ColorTypeAdmin
     sonata.admin.user:
         class: Numa\CIAdminBundle\Admin\UserAdmin
         tags:
