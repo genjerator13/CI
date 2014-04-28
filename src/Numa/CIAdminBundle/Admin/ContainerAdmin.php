@@ -27,7 +27,7 @@ class ContainerAdmin extends Admin {
                 ->add('containerType')
                 ->add('colorType')
                 ->add('inoutxxx', 'choice', array('choices' => array("In" => "In", "Out" => "Out"), 'label' => 'In out'))
-                ->add('hauling', 'String', array('label' => 'Transport'))
+                ->add('hauling', 'text', array('label' => 'Transport'))
         ;
     }
 
@@ -44,8 +44,8 @@ class ContainerAdmin extends Admin {
                 ->addIdentifier('name')
                 ->addIdentifier('containerType')
                 ->addIdentifier('colorType')
-                ->addIdentifier('inoutxxx', 'String', array('label' => 'In Out'))
-                ->addIdentifier('hauling', 'String', array('label' => 'Transport'))
+                ->addIdentifier('inoutxxx', 'string', array('label' => 'In Out'))
+                ->addIdentifier('hauling', 'string', array('label' => 'Transport'))
                 ->addIdentifier('user')
                 ->addIdentifier('date_created')
 
