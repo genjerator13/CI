@@ -39,6 +39,7 @@ class ContainerAdmin extends Admin {
     }
 
     protected function configureListFields(ListMapper $listMapper) {
+        $this->setMaxPerPage(10000000);
         $this->setTemplate('list', 'SonataAdminBundle:CRUD:container_list.html.twig');
         $listMapper
                 ->addIdentifier('name')
@@ -54,8 +55,10 @@ class ContainerAdmin extends Admin {
 
     public function createQuery($context = 'listin') {
 
+        
 
         $query = parent::createQuery($context);
+
         if ($this->getRequest()->get('_sonata_name') == 'admin_numa_ciadmin_container_listin') {
             $query->andWhere(
                     $query->expr()->eq($query->getRootAlias() . '.inoutxxx', ':my_param')
@@ -63,7 +66,28 @@ class ContainerAdmin extends Admin {
 
             $query->setParameter('my_param', 'in');
         }
+        
+        
         return $query;
+    }
+    
+    public function getPerPageOptions() {
+        //$array = parent::getPerPageOptions();
+        $array = array('25','50','All');
+        
+        return $array;
+    }
+    
+    public function getFilterParameters() {
+        $filter = $this->getRequest()->get('filter');
+        $perpage = $filter['_per_page'];
+
+        $this->setMaxPerPage($perpage);
+        if ($perpage == 'All') {
+            
+            $this->setMaxPerPage(10000000);
+        }
+        return parent::getFilterParameters();
     }
 
 }
