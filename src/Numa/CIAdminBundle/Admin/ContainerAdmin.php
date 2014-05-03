@@ -23,7 +23,7 @@ class ContainerAdmin extends Admin {
 
     protected function configureFormFields(FormMapper $formMapper) {
         $formMapper
-                ->add('name')
+                ->add('name', 'text', array('label' => 'Unit #'))
                 ->add('containerType')
                 ->add('colorType')
                 ->add('inoutxxx', 'choice', array('choices' => array("In" => "In", "Out" => "Out"), 'label' => 'In out'))
@@ -33,7 +33,7 @@ class ContainerAdmin extends Admin {
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper) {
         $datagridMapper
-                ->add('name')
+                ->add('name', 'doctrine_orm_string', array('label' => 'Unit #'))
                 ->add('date_created', 'doctrine_orm_date_range');
         ;
     }
@@ -42,7 +42,7 @@ class ContainerAdmin extends Admin {
         $this->setMaxPerPage(10000000);
         $this->setTemplate('list', 'SonataAdminBundle:CRUD:container_list.html.twig');
         $listMapper
-                ->addIdentifier('name')
+                ->addIdentifier('name', 'string', array('label' => 'Unit #'))
                 ->addIdentifier('containerType')
                 ->addIdentifier('colorType')
                 ->addIdentifier('inoutxxx', 'string', array('label' => 'In Out'))
