@@ -56,16 +56,24 @@ class ContainerAdmin extends Admin {
     public function createQuery($context = 'listin') {
 
         
+        $subquery = $this->getConfigurationPool()->getContainer()->get('doctrine')->getEntityManager()->createQueryBuilder()
+         ->select('c.name')
+         ->from('Numa\CIAdminBundle\Entity\Container', 'c')                 
+                 ->where('c.inoutxxx like \'in\'')
+         ->getDql();
+        //$subquery
 
         $query = parent::createQuery($context);
 
         if ($this->getRequest()->get('_sonata_name') == 'admin_numa_ciadmin_container_listin') {
             $query->andWhere(
-                    $query->expr()->eq($query->getRootAlias() . '.inoutxxx', ':my_param')
+                    $query->expr()->eq($query->getRootAlias() . '.inoutxxx', ':my_param1')
             );
-
-            $query->setParameter('my_param', 'in');
-        }
+            $query->andWhere($query->expr()->In($query->getRootAlias().'.name  ', $subquery));
+            $query->andWhere($query->getRootAlias() . '.inoutxxx not like \'out\'');
+            $query->setParameter('my_param1', 'in');
+            
+        }               
         
         
         return $query;
