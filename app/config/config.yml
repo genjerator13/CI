@@ -86,6 +86,7 @@ sonata_admin:
                     - sonata.admin.user
     templates:
         dashboard: SonataAdminBundle:Core:dashboard.html.twig
+        pager_links:         SonataAdminBundle:Pager:links.html.twig
  
 sonata_block:
     default_contexts: [cms]
