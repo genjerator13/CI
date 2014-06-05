@@ -27,7 +27,7 @@ class ContainerAdmin extends Admin {
                 ->add('containerType')
                 ->add('colorType')
                 ->add('inoutxxx', 'choice', array('choices' => array("In" => "In", "Out" => "Out"), 'label' => 'In out'))
-                ->add('hauling', 'text', array('label' => 'Transport'))
+                ->add('hauling', 'text', array('label' => 'Transport','required'=>false))
         ;
     }
 
