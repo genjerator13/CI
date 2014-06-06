@@ -22,6 +22,10 @@ class EntityListener {
         if ($entity instanceof container) {
             $user = $this->container->get('security.context')->getToken()->getUser();
             $entity->setUser($user);
+            //trim spaces
+            $name = $entity->getName();
+            $name = str_replace(" ", "", $name);
+            $entity->setName($name);
         } elseif ($entity instanceof User) {
             $factory = $this->container->get('security.encoder_factory');
             $encoder = $factory->getEncoder($entity);
@@ -33,7 +37,12 @@ class EntityListener {
     public function preUpdate(LifecycleEventArgs $args) {
         $entity = $args->getEntity();
         $entityManager = $args->getEntityManager();
-        if ($entity instanceof User) {
+        if ($entity instanceof container) {
+            //trim spaces
+            $name = $entity->getName();
+            $name = str_replace(" ", "", $name);
+            $entity->setName($name);
+        } else if ($entity instanceof User) {
             $factory = $this->container->get('security.encoder_factory');
             $encoder = $factory->getEncoder($entity);
 
